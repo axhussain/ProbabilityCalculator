@@ -1,13 +1,23 @@
-﻿using MediatR;
+﻿using EnsureThat;
+using MediatR;
 using ProbCalc.Application.Services;
 using ProbCalc.Domain.Services;
 
 namespace ProbCalc.Application.Queries
 {
-    public record GetCombinedWithQuery : IRequest<float>
+    public sealed record GetCombinedWithQuery : IRequest<float>
     {
-        public float A { get; init; }
-        public float B { get; init; }
+        public GetCombinedWithQuery(float pA, float pB)
+        {
+            EnsureArg.IsInRange(value: pA, min: 0, max: 1, paramName: nameof(pA));
+            EnsureArg.IsInRange(value: pB, min: 0, max: 1, paramName: nameof(pB));
+
+            A = pA;
+            B = pB;
+        }
+
+        public float A { get; }
+        public float B { get; }
     }
 
     public class GetCombinedWithQueryHandler : IRequestHandler<GetCombinedWithQuery, float>

@@ -1,13 +1,23 @@
-﻿using MediatR;
+﻿using EnsureThat;
+using MediatR;
 using ProbCalc.Application.Services;
 using ProbCalc.Domain.Services;
 
 namespace ProbCalc.Application.Queries
 {
-    public record GetEitherQuery : IRequest<float>
+    public sealed record GetEitherQuery : IRequest<float>
     {
-        public float A { get; init; }
-        public float B { get; init; }
+        public GetEitherQuery(float pA, float pB)
+        {
+            EnsureArg.IsInRange(value: pA, min: 0, max: 1, paramName: nameof(pA));
+            EnsureArg.IsInRange(value: pB, min: 0, max: 1, paramName: nameof(pB));
+
+            A = pA;
+            B = pB;
+        }
+
+        public float A { get; }
+        public float B { get; }
     }
 
     public class GetEitherQueryHandler : IRequestHandler<GetEitherQuery, float>

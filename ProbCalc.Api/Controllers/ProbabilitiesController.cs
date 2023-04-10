@@ -10,16 +10,20 @@ namespace ProbCalc.Api.Controllers
     {
         [HttpGet]
         [Route(nameof(CombinedWith))]
-        public Task<float> CombinedWith([FromQuery] GetCombinedWithQuery query)
+        public Task<float> CombinedWith(
+            [FromQuery] float pA, 
+            [FromQuery] float pB)
         {
-            return Mediator.Send(query);
+            return Mediator.Send(new GetCombinedWithQuery(pA, pB));
         }
 
         [HttpGet]
         [Route(nameof(Either))]
-        public Task<float> Either([FromQuery] GetEitherQuery query)
+        public Task<float> Either(
+            [FromQuery] float pA, 
+            [FromQuery] float pB)
         {
-            return Mediator.Send(query);
+            return Mediator.Send(new GetEitherQuery(pA, pB));
         }
     }
 }
