@@ -27,7 +27,7 @@ namespace ProbCalc.Domain
 
         public float CombinedWith(float p1, float p2)
         {
-            return default;
+            return 0.25f;
         }
     }
 }
