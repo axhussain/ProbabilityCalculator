@@ -23,4 +23,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProbCalc.Domain\ProbCalc.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
