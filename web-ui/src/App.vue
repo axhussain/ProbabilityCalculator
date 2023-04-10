@@ -29,8 +29,17 @@
 
         <div class="col-md-5">
           <label class="form-label mx-3">Select a calculation</label><br />
-          <button class="btn btn-primary btn-md mx-3">Combined with</button>
-          <button class="btn btn-primary btn-md">Either</button>
+          <button @click="combinedWith" class="btn btn-primary btn-md mx-3">
+            Combined with
+          </button>
+          <button @click="either" class="btn btn-primary btn-md">Either</button>
+        </div>
+      </div>
+
+      <div class="row my-3" v-if="result">
+        <div class="col-md-1">Output:</div>
+        <div class="col-md-1">
+          {{ result }}
         </div>
       </div>
     </main>
@@ -38,29 +47,63 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import { ValidationProvider, extend } from "vee-validate";
-import { required, between } from "vee-validate/dist/rules";
+  import { Component, Vue } from "vue-property-decorator";
+  import { ValidationProvider, extend } from "vee-validate";
+  import { required, between } from "vee-validate/dist/rules";
+  import axios from "axios";
 
-extend("required", {
-  ...required,
-  message: "This is a required field",
-});
+  extend("required", {
+    ...required,
+    message: "This is a required field",
+  });
 
-extend("between", {
-  ...between,
-  message: "Probability must be between 0 and 1",
-});
+  extend("between", {
+    ...between,
+    message: "Probability must be between 0 and 1",
+  });
 
-@Component({
-  components: {
-    ValidationProvider,
-  },
-})
-export default class App extends Vue {
-  pA: number | null = null;
-  pB: number | null = null;
-}
+  @Component({
+    components: {
+      ValidationProvider,
+    },
+  })
+  export default class App extends Vue {
+    pA: number | null = null;
+    pB: number | null = null;
+    result: number | null = null;
+
+    public combinedWith(): void {
+      axios
+        .get("http://localhost:5000/api/Probabilities/CombinedWith", {
+          params: {
+            pA: this.pA,
+            pB: this.pB,
+          },
+        })
+        .then((response) => {
+          this.result = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+
+    public either(): void {
+      axios
+        .get("http://localhost:5000/api/Probabilities/Either", {
+          params: {
+            pA: this.pA,
+            pB: this.pB,
+          },
+        })
+        .then((response) => {
+          this.result = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }
 </script>
 
 <style>
