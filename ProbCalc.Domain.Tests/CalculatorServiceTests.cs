@@ -1,4 +1,5 @@
 using ProbCalc.Domain.Services;
+using FluentAssertions;
 
 namespace ProbCalc.Domain
 {
@@ -16,7 +17,7 @@ namespace ProbCalc.Domain
             var actual = sut.CombinedWith(pA, pB);
 
             //Assert
-            Assert.Equal(expected, actual);
+            actual.Should().Be(expected);
         }
 
         [Theory]
@@ -28,7 +29,9 @@ namespace ProbCalc.Domain
             var sut = new CalculatorService();
 
             //Act and Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => sut.CombinedWith(pA, pB));
+            sut.Invoking(x => x.CombinedWith(pA, pB))
+               .Should()
+               .Throw<ArgumentOutOfRangeException>();
         }
 
         [Theory]
@@ -42,7 +45,7 @@ namespace ProbCalc.Domain
             var actual = sut.Either(pA, pB);
 
             //Assert
-            Assert.Equal(expected, actual);
+            actual.Should().Be(expected);
         }
 
         [Theory]
@@ -54,7 +57,9 @@ namespace ProbCalc.Domain
             var sut = new CalculatorService();
 
             //Act and Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => sut.Either(pA, pB));
+            sut.Invoking(x => x.Either(pA, pB))
+               .Should()
+               .Throw<ArgumentOutOfRangeException>();
         }
     }
 }
