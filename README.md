@@ -34,7 +34,7 @@ dotnet test
 ```
 
 ### Run your end-to-end tests
-From web-ui/:
+From the `web-ui` folder:
 ```
 npm run test:e2e
 ```
