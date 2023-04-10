@@ -8,6 +8,8 @@ namespace WebApi
     {
         public static void Main(string[] args)
         {
+            var allowUI = "_allowUI";
+
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -19,6 +21,15 @@ namespace WebApi
             {
                 cfg.RegisterServicesFromAssembly(typeof(GetEitherQuery).Assembly);
             });
+            builder.Services.AddCors(cfg =>
+            {
+                cfg.AddPolicy(
+                    name: allowUI,
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:8080");
+                    });
+            });
 
 
             var app = builder.Build();
@@ -29,6 +40,7 @@ namespace WebApi
                 app.UseSwaggerUI();
             }
 
+            app.UseCors(allowUI);
             app.UseAuthorization();
             app.MapControllers();
             app.Run();
