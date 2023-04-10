@@ -1,4 +1,4 @@
-namespace ProbCalc.Domain.Tests
+namespace ProbCalc.Domain
 {
     public class UnitTest1
     {

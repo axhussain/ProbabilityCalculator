@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>ProbCalc.Domain</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
