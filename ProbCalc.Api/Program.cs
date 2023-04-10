@@ -1,8 +1,8 @@
-using ProbCalc.Application.Queries;
-using ProbCalc.Application.Services;
-using ProbCalc.Domain.Services;
+using Application.Queries;
+using Application.Services;
+using Domain.Services;
 
-namespace ProbCalc.Api
+namespace WebApi
 {
     public static class Program
     {

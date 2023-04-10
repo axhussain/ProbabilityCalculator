@@ -1,8 +1,7 @@
-﻿using MediatR;
+﻿using Application.Queries;
 using Microsoft.AspNetCore.Mvc;
-using ProbCalc.Application.Queries;
 
-namespace ProbCalc.Api.Controllers
+namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -11,7 +10,7 @@ namespace ProbCalc.Api.Controllers
         [HttpGet]
         [Route(nameof(CombinedWith))]
         public Task<float> CombinedWith(
-            [FromQuery] float pA, 
+            [FromQuery] float pA,
             [FromQuery] float pB)
         {
             return Mediator.Send(new GetCombinedWithQuery(pA, pB));
@@ -20,7 +19,7 @@ namespace ProbCalc.Api.Controllers
         [HttpGet]
         [Route(nameof(Either))]
         public Task<float> Either(
-            [FromQuery] float pA, 
+            [FromQuery] float pA,
             [FromQuery] float pB)
         {
             return Mediator.Send(new GetEitherQuery(pA, pB));

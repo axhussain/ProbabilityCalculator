@@ -1,9 +1,9 @@
-﻿using EnsureThat;
+﻿using Application.Services;
+using Domain.Services;
+using EnsureThat;
 using MediatR;
-using ProbCalc.Application.Services;
-using ProbCalc.Domain.Services;
 
-namespace ProbCalc.Application.Queries
+namespace Application.Queries
 {
     public sealed record GetCombinedWithQuery : IRequest<float>
     {

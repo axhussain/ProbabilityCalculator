@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbCalc.Domain", "ProbCalc.Domain\ProbCalc.Domain.csproj", "{49F55677-4078-4C44-BD11-113A544335CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "ProbCalc.Domain\Domain.csproj", "{49F55677-4078-4C44-BD11-113A544335CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbCalc.Domain.Tests", "ProbCalc.Domain.Tests\ProbCalc.Domain.Tests.csproj", "{EF959442-F84B-4971-A808-C4794F2A2D49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "ProbCalc.Domain.Tests\Domain.Tests.csproj", "{EF959442-F84B-4971-A808-C4794F2A2D49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbCalc.Api", "ProbCalc.Api\ProbCalc.Api.csproj", "{BCF285FF-5038-4D86-9C95-E27A6B096E3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "ProbCalc.Api\WebApi.csproj", "{BCF285FF-5038-4D86-9C95-E27A6B096E3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbCalc.Application", "ProbCalc.Application\ProbCalc.Application.csproj", "{97ADF7BB-D5CD-4AA6-AEC6-435CDB0E9FDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "ProbCalc.Application\Application.csproj", "{97ADF7BB-D5CD-4AA6-AEC6-435CDB0E9FDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

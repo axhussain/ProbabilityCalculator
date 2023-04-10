@@ -1,4 +1,4 @@
-﻿namespace ProbCalc.Domain.Services
+﻿namespace Domain.Services
 {
     public interface ICalculatorService
     {

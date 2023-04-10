@@ -1,7 +1,7 @@
-using ProbCalc.Domain.Services;
+using Domain.Services;
 using FluentAssertions;
 
-namespace ProbCalc.Domain
+namespace Domain
 {
     public class CalculatorServiceTests
     {

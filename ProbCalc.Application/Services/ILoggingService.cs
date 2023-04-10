@@ -1,4 +1,4 @@
-﻿namespace ProbCalc.Application.Services
+﻿namespace Application.Services
 {
     public interface ILoggingService
     {

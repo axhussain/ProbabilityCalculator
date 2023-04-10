@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace ProbCalc.Application.Services
+namespace Application.Services
 {
     public class LoggingService : ILoggingService
     {

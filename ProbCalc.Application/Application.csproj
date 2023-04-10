@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProbCalc.Domain\ProbCalc.Domain.csproj" />
+    <ProjectReference Include="..\ProbCalc.Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>
