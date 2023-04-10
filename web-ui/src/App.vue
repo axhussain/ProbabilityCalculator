@@ -29,16 +29,16 @@
 
         <div class="col-md-5">
           <label class="form-label mx-3">Select a calculation</label><br />
-          <button @click="combinedWith" class="btn btn-primary btn-md mx-3">
+          <button id="btn-combine" @click="combinedWith" class="btn btn-primary btn-md mx-3">
             Combined with
           </button>
-          <button @click="either" class="btn btn-primary btn-md">Either</button>
+          <button id="btn-either" @click="either" class="btn btn-primary btn-md">Either</button>
         </div>
       </div>
 
       <div class="row my-3" v-if="result">
         <div class="col-md-1">Output:</div>
-        <div class="col-md-1">
+        <div class="col-md-1" id="result">
           {{ result }}
         </div>
       </div>
