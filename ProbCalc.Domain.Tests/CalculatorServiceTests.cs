@@ -1,20 +1,18 @@
 namespace ProbCalc.Domain
 {
-    public class UnitTest1
+    public class CalculatorServiceTests
     {
-        [Fact]
-        public void Test1()
+        [Theory]
+        [InlineData(0.5f, 0.5f, 0.25f)]
+        public void CombinedWith_GivenPoint5AndPoint5_ShouldReturnPoint25(float p1, float p2, float expected)
         {
             //Arrange
-            var p1 = 0.5f;
-            var p2 = 0.5f;
             var sut = new CalculatorService();
 
             //Act
             var actual = sut.CombinedWith(p1, p2);
 
             //Assert
-            var expected = 0.25f;
             Assert.Equal(expected, actual);
         }
     }
