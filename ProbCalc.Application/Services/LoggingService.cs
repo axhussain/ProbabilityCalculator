@@ -4,13 +4,11 @@ namespace ProbCalc.Application.Services
 {
     public class LoggingService : ILoggingService
     {
-        private readonly IConfiguration _configuration;
         private readonly string _filePath;
 
         public LoggingService(IConfiguration configuration)
         {
-            _configuration = configuration;
-            _filePath = _configuration.GetSection("LoggingService")["FilePath"] ?? AppDomain.CurrentDomain.BaseDirectory + "log.txt";
+            _filePath = configuration.GetSection("LoggingService")["FilePath"] ?? AppDomain.CurrentDomain.BaseDirectory + "log.txt";
         }
 
         public void Write(string message)
