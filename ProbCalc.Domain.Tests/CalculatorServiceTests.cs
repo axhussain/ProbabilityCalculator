@@ -38,6 +38,16 @@ namespace ProbCalc.Domain
 
         public float CombinedWith(float pA, float pB)
         {
+            if (pA < 0 || pA > 1) 
+            {
+                throw new ArgumentOutOfRangeException(nameof(pA), "Probabilities must be within 0-1, inclusive.");
+            }
+
+            if (pB < 0 || pB > 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(pA), "Probabilities must be within 0-1, inclusive.");
+            }
+
             var result = pA * pB;
             return result;
         }
