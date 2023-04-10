@@ -1,6 +1,6 @@
 ﻿namespace ProbCalc.Domain.Services
 {
-    public class CalculatorService
+    public class CalculatorService : ICalculatorService
     {
         public CalculatorService()
         {
@@ -13,7 +13,7 @@
 
             var result = pA * pB;
             return result;
-        }        
+        }
 
         public float Either(float pA, float pB)
         {
