@@ -44,5 +44,17 @@ namespace ProbCalc.Domain
             //Assert
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData(0.5f, -0.5f)]
+        [InlineData(1.1f, 0.25f)]
+        public void Either_GivenAnInvalidInput_ShouldThrow(float pA, float pB)
+        {
+            //Arrange
+            var sut = new CalculatorService();
+
+            //Act and Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => sut.Either(pA, pB));
+        }
     }
 }

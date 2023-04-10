@@ -13,6 +13,15 @@
 
             var result = pA * pB;
             return result;
+        }        
+
+        public float Either(float pA, float pB)
+        {
+            ValidateProbability(pA);
+            ValidateProbability(pB);
+
+            var result = pA + pB - pA * pB;
+            return result;
         }
 
         private static void ValidateProbability(float probability)
@@ -21,11 +30,6 @@
             {
                 throw new ArgumentOutOfRangeException(nameof(probability), "Probabilities must be within 0-1, inclusive.");
             }
-        }
-
-        public float Either(float pA, float pB)
-        {
-            return default;
         }
     }
 }
