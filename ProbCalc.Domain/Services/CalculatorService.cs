@@ -22,5 +22,10 @@
                 throw new ArgumentOutOfRangeException(nameof(probability), "Probabilities must be within 0-1, inclusive.");
             }
         }
+
+        public float Either(float pA, float pB)
+        {
+            return default;
+        }
     }
 }

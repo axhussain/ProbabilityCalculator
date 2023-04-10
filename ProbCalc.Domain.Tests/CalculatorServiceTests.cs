@@ -30,5 +30,19 @@ namespace ProbCalc.Domain
             //Act and Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => sut.CombinedWith(pA, pB));
         }
+
+        [Theory]
+        [InlineData(0.5f, 0.5f, 0.75f)]
+        public void Either_GivenTwoValidInputs_ShouldReturnProbabilityOfEither(float pA, float pB, float expected)
+        {
+            //Arrange
+            var sut = new CalculatorService();
+
+            //Act
+            var actual = sut.Either(pA, pB);
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }
