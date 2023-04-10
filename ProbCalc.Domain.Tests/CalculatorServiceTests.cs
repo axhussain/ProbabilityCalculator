@@ -5,7 +5,7 @@ namespace ProbCalc.Domain
         [Theory]
         [InlineData(0.5f, 0.5f, 0.25f)]
         [InlineData(0.5f, 0.25f, 0.125f)]
-        public void CombinedWith_GivenPoint5AndPoint5_ShouldReturnPoint25(float pA, float pB, float expected)
+        public void CombinedWith_GivenTwoValidInputs_ShouldReturnTheProduct(float pA, float pB, float expected)
         {
             //Arrange
             var sut = new CalculatorService();
@@ -38,18 +38,19 @@ namespace ProbCalc.Domain
 
         public float CombinedWith(float pA, float pB)
         {
-            if (pA < 0 || pA > 1) 
-            {
-                throw new ArgumentOutOfRangeException(nameof(pA), "Probabilities must be within 0-1, inclusive.");
-            }
-
-            if (pB < 0 || pB > 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(pA), "Probabilities must be within 0-1, inclusive.");
-            }
+            ValidateProbability(pA);
+            ValidateProbability(pB);
 
             var result = pA * pB;
             return result;
+        }
+
+        private static void ValidateProbability(float probability)
+        {
+            if (probability < 0 || probability > 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(probability), "Probabilities must be within 0-1, inclusive.");
+            }
         }
     }
 }
